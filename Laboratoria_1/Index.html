@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lab_1_Rozgrzewka</title>
+</head>
+<body>
+    <h1>Lab_1_Rozgrzewka</h1>
+
+    <!-- Div do przechowywania pól tekstowych -->
+    <div id="inputs">
+        <input type="text" class="number" oninput="calculate()" />
+        <input type="text" class="number" oninput="calculate()" />
+        <input type="text" class="number" oninput="calculate()" />
+    </div>
+    
+    <!-- Przycisk do dodawania nowych pól tekstowych -->
+    <button id="addInput">Dodaj pole</button>
+    
+    <!-- Przycisk do usuwania ostatniego pola tekstowego -->
+    <button id="removeInput">Usuń pole</button>
+    
+    <!-- Przycisk do przeliczania wyników -->
+    <button id="calculate">Przelicz</button>
+    
+    <!-- Wyniki obliczeń -->
+    <div id="results">
+        <p>Suma: <span id="sum">0</span></p>
+        <p>Średnia: <span id="average">0</span></p>
+        <p>Min: <span id="min">0</span></p>
+        <p>Max: <span id="max">0</span></p>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
