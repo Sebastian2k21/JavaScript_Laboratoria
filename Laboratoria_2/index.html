@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>Slider</title>   
+    </head>
+
+    <header>
+        <h1> Photo Slider </h1>
+    </header>
+
+    <body>
+        <div id="slider">
+
+            <div class="slides fade">
+                <img src="https://picsum.photos/300/400?grayscale" alt="Photo1">
+            </div>
+
+            <div class="slides fade">
+                <img src="https://picsum.photos/id/870/300/400?grayscale&blur=2" alt="Photo2">
+            </div>
+
+            <div class="slides fade">
+                <img src="https://picsum.photos/seed/picsum/300/400" alt="Photo3">
+            </div>
+
+            <div class="slides fade">
+                <img src="https://picsum.photos/300/400?grayscale
+                " alt="Photo4">
+            </div>
+
+            <div class="slides fade">
+                <img src="https://picsum.photos/seed/picsum/300/400" alt="photo5">
+
+
+            <div id="first">
+                <a class="Previous" onclick="plusSlides(-1)">&#10094;</a>
+            </div>
+
+            <div id="second">
+                <a class="Next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+        </div>
+
+        <div style="text-align:center">
+            <span class="dot active" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+            <span class="dot" onclick="currentSlide(5)"></span>
+        </div>
+
+        <main>
+        </main>
+
+        <script src="main.js"></script>
+    </body>
+</html>
