@@ -3,7 +3,7 @@ let addInputButton = document.getElementById('addInput');
 let removeInputButton = document.getElementById('removeInput');
 let calculateButton = document.getElementById('calculate');
 
-// Obsługa dodawania nowych pól tekstowych
+
 addInputButton.addEventListener('click', () => {
     let newInput = document.createElement('input');
     newInput.type = 'text';
@@ -12,20 +12,20 @@ addInputButton.addEventListener('click', () => {
     document.getElementById('inputs').appendChild(newInput);
 });
 
-// Obsługa usuwania ostatniego pola tekstowego
+
 removeInputButton.addEventListener('click', () => {
     let inputs = document.querySelectorAll('.number');
     if (inputs.length > 0) {
         let lastInput = inputs[inputs.length - 1];
         lastInput.parentNode.removeChild(lastInput);
     }
-    calculate(); // Wywołanie funkcji przeliczania po usunięciu pola
+    calculate(); 
 });
 
-// Obsługa przycisku "Przelicz"
+
 calculateButton.addEventListener('click', calculate);
 
-// Funkcja przeliczająca sumę, średnią, minimum i maksimum
+
 function calculate() {
     let inputs = document.querySelectorAll('.number');
     let values = [];

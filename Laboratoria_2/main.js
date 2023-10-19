@@ -15,15 +15,12 @@ function currentSlide(n) {
 function showSlides(n) {
     clearInterval(moveRightInterval);
     
-    let slides = document.getElementsByClassName("slides");
+    let slidesContainer = document.getElementById("slider").querySelector(".slides");
+    let slides = slidesContainer.querySelectorAll("img");
     let dots = document.getElementsByClassName("dot");
     
-    if (n > slides.length) {
-        slideIndex = 1;
-    } 
-    if (n < 1) {
-        slideIndex = slides.length;
-    }
+    if (n > slides.length) { slideIndex = 1; } 
+    if (n < 1) { slideIndex = slides.length; }
     
     for (let i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
@@ -33,8 +30,8 @@ function showSlides(n) {
         dots[i].className = dots[i].className.replace(" active", "");
     }
     
-    slides[slideIndex-1].style.display = "block";
-    dots[slideIndex-1].className += " active";
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].className += " active";
     
     moveRightInterval = setInterval(function() {
         plusSlides(1);
