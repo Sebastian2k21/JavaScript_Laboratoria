@@ -1,48 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
-        <title>Slider</title>   
-    </head>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-    <header>
-        <h1>Slider</h1>
-    </header>
-
-    <body>
-        <div id="slider">
-
-           <div class = "slides fade">
-
-            <img src="https://picsum.photos/300/400?grayscale" alt="Photo1">
-            <img src="https://picsum.photos/id/870/300/400?grayscale&blur=2" alt="Photo2">
-            <img src="https://picsum.photos/seed/picsum/300/400" alt="Photo2">
-            <img src="https://picsum.photos/300/400?grayscal" alt="Photo2">
-            <img src="https://picsum.photos/seed/picsum/300/400" alt="Photo2">
-
+<div class="slider-container">
+    <div class="slider-wrapper">
+        <div class="slide">
+            <!-- Content for Slide 1 -->
+            <img src="./Photo/zdj1.jpg" alt="Image 1">
         </div>
-            <div id="nav">
-
-                <a class="Previous" onclick="plusSlides(-1)">&#10094;</a>
-                <a class="Next" onclick="plusSlides(1)">&#10095;</a>
-
-            </div>
+        <div class="slide">
+            <!-- Content for Slide 2 -->
+            <img src="./Photo/zdj2.jpg" alt="Image 2">
         </div>
-
-        <div style="text-align:center">
-            <span class="dot active" onclick="currentSlide(1)"></span>
-            <span class="dot" onclick="currentSlide(2)"></span>
-            <span class="dot" onclick="currentSlide(3)"></span>
-            <span class="dot" onclick="currentSlide(4)"></span>
-            <span class="dot" onclick="currentSlide(5)"></span>
+        <div class="slide">
+            <!-- Content for Slide 1 -->
+            <img src="./Photo/zdj3.jpg" alt="./Photo/zdj2.jpg">
         </div>
+        <div class="slide">
+            <!-- Content for Slide 2 -->
+            <img src="./Photo/zdj4.jpg" alt="Image 2">
+        </div>
+        <!-- Repeat for more slides -->
+    </div>
+</div>
 
-        <main>
-        </main>
+<div class="slider-controls">
+    <button id="prevSlide">Wstecz</button>
+    <div class="pagination"></div>
+    <button id="nextSlide">Dalej</button>
+    <button id="pauseResume">Pauza</button>
+</div>
 
-        <script src="main.js"></script>
-    </body>
+<script src="main.js"></script>
+</body>
 </html>
