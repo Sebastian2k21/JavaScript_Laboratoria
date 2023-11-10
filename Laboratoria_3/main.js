@@ -20,15 +20,15 @@ for(let i = 0; i < gallery.length; i++){
     audio.addEventListener('mouseOut', out);
 }
 
-const a = document.querySelector('#Boom');
-const b = document.querySelector('#Clap');
-const c = document.querySelector('#Hihat');
-const d = document.querySelector('#Kick');
-const e = document.querySelector('#Openhat');
-const f = document.querySelector('#Ride');
-const g = document.querySelector('#Snare');
-const h = document.querySelector('#Tink');
-const i = document.querySelector('#Tom');
+const one = document.querySelector('#Boom');
+const two = document.querySelector('#Clap');
+const three = document.querySelector('#Hihat');
+const four = document.querySelector('#Kick');
+const five = document.querySelector('#Openhat');
+const six = document.querySelector('#Ride');
+const seven = document.querySelector('#Snare');
+const eight = document.querySelector('#Tink');
+const nine = document.querySelector('#Tom');
 
 function enter(tmp){
     let x = tmp.target;
@@ -103,31 +103,31 @@ function Play(ev){
     console.log(ev);
     
     switch(ev.target){
-        case a:
+        case one:
             soundId = 'boom';
             break;
-        case b:
+        case two:
             soundId = 'clap';
             break;
-        case c:
+        case three:
             soundId = 'hihat';
             break;
-        case d:
+        case four:
             soundId = 'kick';
             break;
-        case e:
+        case five:
             soundId = 'openhat';
             break;
-        case f:
+        case six:
             soundId = 'ride';
             break;
-        case g:
+        case seven:
             soundId = 'snare';
             break;
-        case h:
+        case eight:
             soundId = 'tink';
             break;
-        case i:
+        case nine:
             soundId = 'tom';
             break;
 
@@ -173,25 +173,25 @@ function onKeyPress(ev){
         case 'KeyS':
             soundId = 'clap';
             break;
-        case 'KeyQ':
+        case 'KeyD':
             soundId = 'hihat';
             break;
-        case 'KeyP':
+        case 'KeyF':
             soundId = 'kick';
             break;
-        case 'KeyR':
+        case 'KeyG':
             soundId = 'openhat';
             break;
-        case 'KeyY':
+        case 'KeyH':
             soundId = 'ride';
             break;
-        case 'KeyO':
+        case 'KeyJ':
             soundId = 'snare';
             break;
-        case 'KeyB':
+        case 'KeyK':
             soundId = 'tink';
             break;
-        case 'KeyC':
+        case 'KeyL':
             soundId = 'tom';
             break;
 
