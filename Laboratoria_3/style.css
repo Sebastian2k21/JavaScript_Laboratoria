@@ -6,17 +6,10 @@
     align-items: center;
     flex-direction: column;
     padding: 20px;
-<<<<<<< HEAD
     background-color: #fefcbf; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
     border-radius: 15px; 
     border: 1px solid #ddd; 
-=======
-    background-color: #fefcbf;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 15px;
-    border: 1px solid #ddd;
->>>>>>> 1897703713512a84ad70780334de7b6973140238
 }
 
 .sounds {
@@ -28,7 +21,6 @@
 
 .sounds div {
     width: 100%;
-<<<<<<< HEAD
     max-width: 300px; 
     margin: 10px 0;
     padding: 15px;
@@ -42,29 +34,12 @@
 .sounds div:hover {
     transform: translateY(-5px); 
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); 
-=======
-    max-width: 300px;
-    margin: 10px 0;
-    padding: 15px;
-    background-color: #d9f99d;
-    transition: all 0.3s ease-in-out;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.sounds div:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    animation: float 2s ease-in-out infinite;
->>>>>>> 1897703713512a84ad70780334de7b6973140238
 }
 
 button {
     padding: 10px 25px;
     cursor: pointer;
     border: 1px solid #333;
-<<<<<<< HEAD
     border-radius: 5px; 
     background-color: #fff;
     transition: all 0.3s ease;
@@ -81,32 +56,11 @@ button:hover {
 }
 
 
-=======
-    border-radius: 5px;
-    background-color: #fff;
-    transition: all 0.3s ease;
-    font-weight: bold;
-    color: #333;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-button:hover {
-    background-color: #f0c;
-    color: #fff;
-    box-shadow: 0 2px 8px rgba(255, 0, 255, 0.5);
-}
-
->>>>>>> 1897703713512a84ad70780334de7b6973140238
 button:focus {
     outline: none;
     box-shadow: 0 0 0 3px rgba(255, 0, 255, 0.5);
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 1897703713512a84ad70780334de7b6973140238
 @keyframes float {
     0%, 100% {
         transform: translateY(0);
@@ -115,10 +69,7 @@ button:focus {
         transform: translateY(-10px);
     }
 }
-<<<<<<< HEAD
 
 .sounds div:hover {
     animation: float 2s ease-in-out infinite;
 }
-=======
->>>>>>> 1897703713512a84ad70780334de7b6973140238
