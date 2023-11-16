@@ -1,79 +1,74 @@
-body
-{
-    background-color: bisque;
+body {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 12px;
+    margin: 0;
+    padding: 0;
+    background-color:wheat;
 }
 
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
-.note_creator
-{
-    width: 500px;
-    height: 300px;
-    margin: 0 auto;
+h1 {
+    text-align: center;
+}
+
+.notes-container {
+    margin-top: 20px;
+    text-align: center;
+    border:solid 3px wheat;
+}
+
+.note {
+    border: 1px solid #ddd;
     padding: 10px;
-    border: 1px solid wheat;
-    background-color: sandybrown;
-    border-radius: 5px;
-    box-shadow: 0 0 10px #ccc;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    text-align: center;
-    font-size: 16px;
-    font-weight: bold;
-    color: #000;
-
-
-}
-
-.note_creator input[type="text"]
-{
-    width: 80%;
-    height: 30px;
     margin-bottom: 10px;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    font-size: 16px;
-    background-color: bisque;
-
+    position: relative;
 }
-.note_creator textarea
-{
-    width: 80%;
-    height: 60px;
-    margin-bottom: 10px;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    font-size: 16px;
-    resize: none;
-    background-color: bisque;
 
+.note h2 {
+    margin-top: 0;
 }
-.note_creator label
-{
-    font-weight: bold;
-    font-size: 16px;
+
+.note p {
+    margin-bottom: 0;
+}
+
+.note .date {
+    font-size: 12px;
+    color: #888;
+}
+
+.add-note-form {
+    margin-top: 20px;
     text-align: center;
+    border:solid 3px wheat;
+    background-color: rgb(211, 148, 30);
+}
+
+label {
     display: block;
-    margin-bottom: 10px;
-
+    margin-bottom: 5px;
 }
 
-.button_creator
+.header-color
 {
-    background-color: skyblue;
-    border:solid 2px #000;
-    border-radius: 5px;
-    padding: 5px 10px;
-    font-size: 16px;
-    cursor: pointer;
-    margin: 0 auto;
-    display: block;
-    width: 100px;
-    text-align: center;
- 
+  font-size: 21px;
+    color: brown;
 }
 
-
+button 
+{
+    background-color: wheat;
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
