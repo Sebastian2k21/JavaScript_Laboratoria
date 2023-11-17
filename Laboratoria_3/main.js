@@ -161,11 +161,6 @@ function onKeyPress(ev){
     console.log(ev);
     soundId = undefined;
 
-    // if(ev.code ==='KeyA'){
-    //     const sound = document.querySelector('#boom');
-    //     sound.play();
-
-    // }
     switch(ev.code){
         case 'KeyA':
             soundId ='boom';

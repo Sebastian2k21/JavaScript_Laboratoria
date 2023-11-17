@@ -1,45 +1,109 @@
-const localStorageKey = 'savedNotes'
-const defaultNoteColor = '#f0e34d'
+document.addEventListener('DOMContentLoaded', function () {
+    displayNotes();
+});
 
-var notes;
+function addNote() {
+    const title = document.getElementById('title').value;
+    const content = document.getElementById('content').value;
+    const color = document.getElementById('color').value;
+    const pin = document.getElementById('pin').checked;
+    const date = new Date().toLocaleString();
 
-function loadNotes() {
-    let localData = localStorage.getItem(localStorageKey);
-    let notes = JSON.parse(localData);
-    return notes == null ? [] : notes
-}
+    const note = {
+        title,
+        content,
+        color,
+        pin,
+        date
+    };
 
-function saveNotes() {
-    let jsonString = JSON.stringify(notes);
-    localStorage.setItem(localStorageKey, jsonString);
+    let notes = JSON.parse(localStorage.getItem('notes')) || [];
+    notes.push(note);
+
+    localStorage.setItem('notes', JSON.stringify(notes));
+    console.log(localStorage.getItem('notes'));
+     
+    displayNotes();
+    clearForm();
 }
 
 function displayNotes() {
-    let noteContainer = document.getElementById('note_container');
-    let templateElement = document.getElementById('note_template');
+    const notesContainer = document.getElementById('notes-container');
+    notesContainer.innerHTML = '';
 
-    noteContainer.innerHTML = null
+    const notes = JSON.parse(localStorage.getItem('notes')) || [];
+
+    notes.forEach((note, index) => {
+        const noteElement = document.createElement('div');
+        noteElement.classList.add('note');
+        noteElement.style.backgroundColor = note.color;
+
+        const titleElement = document.createElement('h2');
+        titleElement.textContent = note.title;
+
+        const contentElement = document.createElement('p');
+        contentElement.textContent = note.content;
+
+        const dateElement = document.createElement('p');
+        dateElement.classList.add('date');
+        dateElement.textContent = note.date;
+
+        noteElement.appendChild(titleElement);
+        noteElement.appendChild(contentElement);
+        noteElement.appendChild(dateElement);
+
+        notesContainer.appendChild(noteElement);
+    });
 }
 
-function createNote() {
-    let creator = document.getElementById('note_creator');
 
-    let note = {
-        'title': creator.querySelector('input[name=note_title]').value,
-        'content': creator.querySelector('textarea[name=note_content]').value,
-        'color': creator.querySelector('input[name=note_color]').value,
-        'timestamp': Date.now(),
-    }
-
-    notes.push(note)
-
-    saveNotes()
-    displayNotes()
+function clearForm() {
+    document.getElementById('title').value = '';
+    document.getElementById('content').value = '';
+    document.getElementById('color').value = '#ffffff';
+    document.getElementById('pin').checked = false;
 }
 
-function deleteNote(id) {
-    console.log(id)
-    notes.splice(id, 1);
-    saveNotes();
-    displayNotes();
+console.log(localStorage.getItem('notes'));
+
+
+function searchNotes() {
+    const searchInput = document.getElementById('search').value.toLowerCase();
+    const notesContainer = document.getElementById('notes-container');
+    const notes = JSON.parse(localStorage.getItem('notes')) || [];
+
+    notesContainer.innerHTML = '';
+
+    notes.forEach((note, index) => {
+        // Sprawdź, czy tytuł, treść lub tagi notatki zawierają wpisaną frazę
+        if (
+            note.title.toLowerCase().includes(searchInput) ||
+            note.content.toLowerCase().includes(searchInput)
+        ) {
+            const noteElement = createNoteElement(note);
+            notesContainer.appendChild(noteElement);
+        }
+    });
+}
+
+function createNoteElement(note) {
+    const noteElement = document.createElement('div');
+    noteElement.classList.add('note');
+    noteElement.style.backgroundColor = note.color;
+
+    const titleElement = document.createElement('h2');
+    titleElement.textContent = note.title;
+
+    const contentElement = document.createElement('p');
+    contentElement.textContent = note.content;
+
+    const dateElement = document.createElement('p');
+    dateElement.classList.add('date');
+    dateElement.textContent = note.date;
+
+    noteElement.appendChild(titleElement);
+    noteElement.appendChild(contentElement);
+    noteElement.appendChild(dateElement);
+
+    return noteElement;
 }
