@@ -44,6 +44,20 @@ let recordedSoundTwo = [];
 let recordedSoundThree = [];
 let recordedSoundFour = [];
 
+const recorded = {
+    "one": recordedSoundOne,
+    "two": recordedSoundTwo,
+    "three": recordedSoundThree,
+    "four": recordedSoundFour
+}
+
+const recordedStart = {
+    "one": 0,
+    "two": 0,
+    "three": 0,
+    "four": 0
+}
+
 let recordedStartTimeOne;
 let recordedStartTimeTwo;
 let recordedStartTimeThree;
@@ -53,6 +67,7 @@ let recordTwo = false;
 let recordThree = false;
 let recordFour = false;
 let soundId;
+let recordedName;
 
 function RecordOne(){
     const soundTime = Date.now() - recordedStartTimeOne;
@@ -197,23 +212,35 @@ function onKeyPress(ev){
         playSound(soundId);
     }
 
-    if(recordOne){
-        RecordOne();
-    }
-    console.log(recordedSoundOne);
-    if(recordTwo){
-        RecordTwo();
 
-    }
-    console.log(recordedSoundTwo);
-    if(recordThree){
-        RecordThree();
-    }
-    console.log(recordedSoundThree);
-    if(recordFour){
-        RecordFour();
-    }
-    console.log(recordedSoundFour);
+    const soundTime = Date.now() - recordedStart[recordedName];
+    
+    const soundObj = {
+        soundId: soundId,
+        time: soundTime
+
+    };
+    recorded[recordedName].push(soundObj);
+
+
+
+    // if(recordOne){
+    //     RecordOne();
+    // }
+    // console.log(recordedSoundOne);
+    // if(recordTwo){
+    //     RecordTwo();
+
+    // }
+    // console.log(recordedSoundTwo);
+    // if(recordThree){
+    //     RecordThree();
+    // }
+    // console.log(recordedSoundThree);
+    // if(recordFour){
+    //     RecordFour();
+    // }
+    // console.log(recordedSoundFour);
       
 }
 
@@ -221,22 +248,30 @@ function onKeyPress(ev){
 function recordBtnOne(){
     recordedSoundOne = [];
     recordOne = true;
+    recordedName = "one"
     recordedStartTimeOne = Date.now();
+    recordedStart["one"] = Date.now();
 }
 function recordBtnTwo(){
     recordedSoundTwo = [];
     recordTwo = true;
+    recordedName = "two"
     recordedStartTimeTwo = Date.now();
+    recordedStart["two"] = Date.now();
 }
 function recordBtnThree(){
     recordedSoundThree = [];
     recordThree = true;
+    recordedName = "three"
     recordedStartTimeThree = Date.now();
+    recordedStart["three"] = Date.now();
 }
 function recordBtnFour(){
     recordedSoundFour = [];
     recordFour = true;
+    recordedName = "four"
     recordedStartTimeFour = Date.now();
+    recordedStart["four"] = Date.now();
 }
 
 
