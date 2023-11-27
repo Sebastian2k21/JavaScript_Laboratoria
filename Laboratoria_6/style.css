@@ -11,6 +11,7 @@
     height: 20px;
     background-color: red;
     border-radius: 50%;
+    z-index: 99999;
 }
 
 #dziura {

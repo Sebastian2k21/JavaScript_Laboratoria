@@ -1,48 +1,95 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const kulka = document.getElementById('kulka');
-    const dziura = document.getElementById('dziura');
-    const gra = document.getElementById('gra');
-    let startTime;
-    let rekordy = [];
+const kulka = document.getElementById("kulka");
 
-    gra.addEventListener('mousemove', function(e) {
-        const rect = gra.getBoundingClientRect();
-        let x = e.clientX - rect.left - kulka.offsetWidth / 2;
-        let y = e.clientY - rect.top - kulka.offsetHeight / 2;
+let lastBeta = null;
+let lastAlpha = null;
 
-        kulka.style.left = x + 'px';
-        kulka.style.top = y + 'px';
+let posX = 0;
+let posY = 0;
 
-        if (czyDotknietoDziury(kulka, dziura)) {
-            const czas = (new Date().getTime() - startTime) / 1000;
-            rekordy.push(czas);
-            rekordy.sort((a, b) => a - b);
-            aktualizujListeRekordow();
-            startTime = new Date().getTime();
+let wins = 0
+let ilosc = document.getElementById("ilosc");
+ilosc.innerHTML = wins + "";
+
+const dziuraX = 300 - 10 - 15
+const dziuraY = 300 - 10 - 15
+
+let currentTime = 0;    
+
+const timer = document.getElementById("timer");
+
+const button = document.getElementById("start");
+button.addEventListener("click", function() { 
+    posX = 0;
+    posY = 0;
+    kulka.style.top = posY + "px";
+    kulka.style.left = posX + "px";
+    wins = 0;
+    currentTime = 0
+    ilosc.innerHTML = wins + "";
+    button.disabled = true
+
+    var refreshIntervalId = setInterval(function() {
+        timer.innerHTML = currentTime + ""
+        currentTime++
+        if(currentTime === 60) {
+            currentTime = 0
+            timer.innerHTML = currentTime + ""
+            button.disabled = false
+            alert("Koniec czasu, ilosc trafien: " + wins)
+            let lista = document.getElementById("listaRekordow")
+            let li = document.createElement("li")
+            li.innerHTML = wins + ""
+            lista.appendChild(li)
+            clearInterval(refreshIntervalId);
         }
-    });
+    }, 1000)
+})
 
-    function czyDotknietoDziury(kulka, dziura) {
-        const kulkaRect = kulka.getBoundingClientRect();
-        const dziuraRect = dziura.getBoundingClientRect();
+window.addEventListener("deviceorientation", function(event) {
+   console.log(event.alpha, event.beta, event.gamma)
+    if (lastBeta !== null && lastAlpha !== null) {
+        let diffX = event.alpha - lastAlpha;
+        if(Math.abs(diffX) > 20) {
+            diffX = 0;
+        }
+        let diffY = event.beta - lastBeta;
+        if(Math.abs(diffY) > 20) {
+            diffY = 0;
+        }
 
-        return !(
-            kulkaRect.right < dziuraRect.left ||
-            kulkaRect.left > dziuraRect.right ||
-            kulkaRect.bottom < dziuraRect.top ||
-            kulkaRect.top > dziuraRect.bottom
-        );
+        posX += diffX*4
+        posY += diffY*3 
+        
+        let srX = posX + 10;
+        let srY = posY + 10;
+        if(Math.sqrt(Math.pow(srX - dziuraX, 2) + Math.pow(srY - dziuraY, 2)) < 15) {
+            posX = 0;
+            posY = 0;
+            wins++;
+            ilosc.innerHTML = wins + "";
+        }
+
+        if(posX < 0) {
+            posX = 0;
+        }
+        if(posX > 280) {
+            posX = 280;
+        }
+        if(posY < 0) {
+            posY = 0;
+        }
+        if(posY > 280) {
+            posY = 280;
+        }
+
+        kulka.style.top = posY + "px";
+        kulka.style.left = posX + "px";
+        
     }
 
-    function aktualizujListeRekordow() {
-        const lista = document.getElementById('listaRekordow');
-        lista.innerHTML = '';
-        rekordy.forEach((rekord, index) => {
-            const element = document.createElement('li');
-            element.textContent = `Rekord ${index + 1}: ${rekord.toFixed(2)} sekund`;
-            lista.appendChild(element);
-        });
-    }
+    lastBeta = event.beta;
+    lastAlpha = event.alpha;
 
-    startTime = new Date().getTime();
-});
+
+}, true);
+
