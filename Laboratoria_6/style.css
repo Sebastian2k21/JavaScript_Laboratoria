@@ -1,0 +1,29 @@
+#gra {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    border: 2px solid black;
+}
+
+#kulka {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    border-radius: 50%;
+    z-index: 99999;
+}
+
+#dziura {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: black;
+    border-radius: 50%;
+    bottom: 10px;
+    right: 10px;
+}
+
+#wyniki {
+    margin-top: 20px;
+}
