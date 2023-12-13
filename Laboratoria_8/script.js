@@ -1,3 +1,15 @@
+const ICONS = {
+    "Clear": "01d.png",
+    "Partly cloudy": "02d.png",
+    "Cloudy": "03d.png",
+    "Light freezing rain": "09d.png",
+    "Patchy rain possible": "10d.png",
+    "Overcast": "11d.png",
+    "Snow": "13d.png",
+    "Mist": "50d.png"
+}
+
+
 document.getElementById('addCity').addEventListener('click', function() {
     const city = document.getElementById('cityInput').value;
     if(city) {
@@ -44,6 +56,9 @@ function updateWeatherDisplay(city, weatherData) {
     const citiesList = document.getElementById('citiesList');
     const cityDiv = document.createElement('div');
     cityDiv.className = 'city';
+
+    const imgFilename = ICONS[weatherData.current_condition[0].weatherDesc[0].value];
+    console.log(weatherData.current_condition[0].weatherDesc[0].value)
     
     cityDiv.innerHTML = `
         <h3>${city}</h3>
@@ -58,6 +73,7 @@ function updateWeatherDisplay(city, weatherData) {
 
         <p>Opady: ${weatherData.current_condition[0].precipMM} mm</p>
         <p>Ciśnienie: ${weatherData.current_condition[0].pressure} hPa</p>
+        <p style='display:flex;align-items:center;justify-content:center'>Niebo: <img src='https://openweathermap.org/img/wn/${imgFilename}'></p>
         <button onclick="removeCity('${city}')">Usuń</button>
     `;
     citiesList.appendChild(cityDiv);
