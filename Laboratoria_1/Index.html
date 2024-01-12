@@ -1,28 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lab_1_Rozgrzewka</title>
 </head>
 <body>
     <h1>Lab_1_Rozgrzewka</h1>
 
- 
     <div id="inputs">
         <input type="text" class="number" oninput="calculate()" />
         <input type="text" class="number" oninput="calculate()" />
         <input type="text" class="number" oninput="calculate()" />
     </div>
-    
-   
+
     <button id="addInput">Add</button>
-    
-    
     <button id="removeInput">Delete</button>
-    
-    
     <button id="calculate">Calculate</button>
-    
-   
+
     <div id="results">
         <p>Sum: <span id="sum">0</span></p>
         <p>Avg: <span id="average">0</span></p>
@@ -30,6 +25,6 @@
         <p>Max: <span id="max">0</span></p>
     </div>
 
-    <script src="main.js"></script>
+    <script type="module" src="main.js"></script>
 </body>
 </html>

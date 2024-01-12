@@ -1,17 +1,14 @@
-// Pobranie przycisków i pól tekstowych
 let addInputButton = document.getElementById('addInput');
 let removeInputButton = document.getElementById('removeInput');
 let calculateButton = document.getElementById('calculate');
-
 
 addInputButton.addEventListener('click', () => {
     let newInput = document.createElement('input');
     newInput.type = 'text';
     newInput.className = 'number';
-    newInput.oninput = calculate;
+    newInput.addEventListener('input', calculate);
     document.getElementById('inputs').appendChild(newInput);
 });
-
 
 removeInputButton.addEventListener('click', () => {
     let inputs = document.querySelectorAll('.number');
@@ -22,9 +19,7 @@ removeInputButton.addEventListener('click', () => {
     calculate(); 
 });
 
-
 calculateButton.addEventListener('click', calculate);
-
 
 function calculate() {
     let inputs = document.querySelectorAll('.number');
@@ -47,10 +42,11 @@ function calculate() {
         document.getElementById('min').textContent = min;
         document.getElementById('max').textContent = max;
     } else {
-       
         document.getElementById('sum').textContent = '0';
         document.getElementById('average').textContent = '0';
         document.getElementById('min').textContent = '0';
         document.getElementById('max').textContent = '0';
     }
 }
+
+export { calculate };
