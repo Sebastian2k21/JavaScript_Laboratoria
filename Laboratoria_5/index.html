@@ -2,15 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Asynchronous Addition</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" type="text/css" href="./style.css">
 </head>
 <body>
-    <h1>Asynchronous Number Addition</h1>
-    <input type="number" id="number1" placeholder="Enter first number">
-    <input type="number" id="number2" placeholder="Enter second number">
-    <button id="addButton">Add Numbers</button>
-    <p id="result"></p>
-    <p id="duration"></p>
-    <script src="script.js"></script>
+    <h1>Math Operations</h1>
+    
+    <label for="number1">Number 1:</label>
+    <input type="text" id="number1" value="">
+
+    <label for="number2">Number 2:</label>
+    <input type="text" id="number2" value="">
+
+    <button id="addButton">Add</button>
+
+    <div id="result"></div>
+    <div id="duration"></div>
+
+    <script type="module" src="./mathOperations.js" defer></script>
+    <script type="module" src="./main.js" defer></script>
 </body>
 </html>

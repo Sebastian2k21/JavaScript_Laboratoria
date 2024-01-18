@@ -224,23 +224,6 @@ function onKeyPress(ev){
 
 
 
-    // if(recordOne){
-    //     RecordOne();
-    // }
-    // console.log(recordedSoundOne);
-    // if(recordTwo){
-    //     RecordTwo();
-
-    // }
-    // console.log(recordedSoundTwo);
-    // if(recordThree){
-    //     RecordThree();
-    // }
-    // console.log(recordedSoundThree);
-    // if(recordFour){
-    //     RecordFour();
-    // }
-    // console.log(recordedSoundFour);
       
 }
 

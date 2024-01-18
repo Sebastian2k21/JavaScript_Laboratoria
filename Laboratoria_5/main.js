@@ -1,11 +1,5 @@
-
-async function sum(a, b) {
-    var now = new Date().getTime();
-    while(new Date().getTime() < now + 100){ 
-        //czekaj
-    } 
-    return a + b
-}
+// main.js
+import { sum } from './mathOperations.js';
 
 document.getElementById('addButton').addEventListener('click', async function() {
     const num1 = parseFloat(document.getElementById('number1').value) || 0;
@@ -19,4 +13,3 @@ document.getElementById('addButton').addEventListener('click', async function() 
     document.getElementById('result').innerText = `Result: ${result}`;
     document.getElementById('duration').innerText = `Operation took ${duration.toFixed(2)} milliseconds.`;
 });
-
