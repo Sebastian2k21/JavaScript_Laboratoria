@@ -10,7 +10,9 @@ const ICONS = {
     "Patchy rain possible": "10d.png",
     "Overcast": "11d.png",
     "Snow": "13d.png",
-    "Mist": "50d.png"
+    "Mist": "50d.png",
+    "Low drifting snow": "13d.png",
+    "Sunny": "01d.png" 
 };
 
 const ui = {
