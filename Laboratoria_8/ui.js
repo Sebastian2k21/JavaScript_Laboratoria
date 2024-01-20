@@ -1,3 +1,4 @@
+
 import storage from './storage.js';
 import weather from './weather.js';
 
@@ -28,7 +29,7 @@ const ui = {
     },
     loadCities: () => {
         const citiesList = document.getElementById('citiesList');
-        citiesList.innerHTML = ''; // Clear existing list
+        citiesList.innerHTML = ''; 
         let cities = storage.getCities();
         cities.forEach(city => {
             weather.fetchWeatherData(city)
@@ -46,7 +47,6 @@ const ui = {
             <h3>${city}</h3>
             <i class="fa-solid fa-sun">
             <p>Temperatura: ${weatherData.current_condition[0].temp_C} °C</p>
-            </i>
             <p>Wilgotność: ${weatherData.current_condition[0].humidity}%</p>
             <p>Wiatr: ${weatherData.current_condition[0].windspeedKmph} km/h</p>
             <p>Wschód słońca: ${weatherData.weather[0].astronomy[0].sunrise}</p>
@@ -56,8 +56,13 @@ const ui = {
             <p>Opady: ${weatherData.current_condition[0].precipMM} mm</p>
             <p>Ciśnienie: ${weatherData.current_condition[0].pressure} hPa</p>
             <p style='display:flex;align-items:center;justify-content:center'>Niebo: <img src='https://openweathermap.org/img/wn/${imgFilename}'></p>
-            <button onclick="ui.removeCity('${city}')">Usuń</button>
         `;
+
+        const removeButton = document.createElement('button');
+        removeButton.textContent = 'Usuń';
+        removeButton.addEventListener('click', () => ui.removeCity(city));
+
+        cityDiv.appendChild(removeButton);
         citiesList.appendChild(cityDiv);
     }
 };

@@ -16,47 +16,33 @@ const gallery = document.querySelectorAll('.sounds div');
 for(let i = 0; i < gallery.length; i++){
     const audio = gallery[i];
     audio.addEventListener('click', Play);
-    audio.addEventListener('mouseEnter', enter);
-    audio.addEventListener('mouseOut', out);
+    audio.addEventListener('mouseover', Enter);
+    audio.addEventListener('mouseout', Out);
 }
 
-const one = document.querySelector('#Boom');
-const two = document.querySelector('#Clap');
-const three = document.querySelector('#Hihat');
-const four = document.querySelector('#Kick');
-const five = document.querySelector('#Openhat');
-const six = document.querySelector('#Ride');
-const seven = document.querySelector('#Snare');
-const eight = document.querySelector('#Tink');
-const nine = document.querySelector('#Tom');
+const a = document.querySelector('#Boom');
+const b = document.querySelector('#Clap');
+const c = document.querySelector('#Hihat');
+const d = document.querySelector('#Kick');
+const e = document.querySelector('#Openhat');
+const f = document.querySelector('#Ride');
+const g = document.querySelector('#Snare');
+const h = document.querySelector('#Tink');
+const i = document.querySelector('#Tom');
 
-function enter(tmp){
-    let x = tmp.target;
-    ;
+function Enter(ntmp){
+    let x = ntmp.target;
+  
 }
-function out(tmp){
-    let x = tmp.target;
-   
+function Out(ntmp){
+    let x = ntmp.target;
+    
 }
 
 let recordedSoundOne = [];
 let recordedSoundTwo = [];
 let recordedSoundThree = [];
 let recordedSoundFour = [];
-
-const recorded = {
-    "one": recordedSoundOne,
-    "two": recordedSoundTwo,
-    "three": recordedSoundThree,
-    "four": recordedSoundFour
-}
-
-const recordedStart = {
-    "one": 0,
-    "two": 0,
-    "three": 0,
-    "four": 0
-}
 
 let recordedStartTimeOne;
 let recordedStartTimeTwo;
@@ -67,7 +53,6 @@ let recordTwo = false;
 let recordThree = false;
 let recordFour = false;
 let soundId;
-let recordedName;
 
 function RecordOne(){
     const soundTime = Date.now() - recordedStartTimeOne;
@@ -118,31 +103,31 @@ function Play(ev){
     console.log(ev);
     
     switch(ev.target){
-        case one:
+        case a:
             soundId = 'boom';
             break;
-        case two:
+        case b:
             soundId = 'clap';
             break;
-        case three:
+        case c:
             soundId = 'hihat';
             break;
-        case four:
+        case d:
             soundId = 'kick';
             break;
-        case five:
+        case e:
             soundId = 'openhat';
             break;
-        case six:
+        case f:
             soundId = 'ride';
             break;
-        case seven:
+        case g:
             soundId = 'snare';
             break;
-        case eight:
+        case h:
             soundId = 'tink';
             break;
-        case nine:
+        case l:
             soundId = 'tom';
             break;
 
@@ -176,6 +161,7 @@ function onKeyPress(ev){
     console.log(ev);
     soundId = undefined;
 
+    
     switch(ev.code){
         case 'KeyA':
             soundId ='boom';
@@ -212,18 +198,23 @@ function onKeyPress(ev){
         playSound(soundId);
     }
 
+    if(recordOne){
+        RecordOne();
+    }
+    console.log(recordedSoundOne);
+    if(recordTwo){
+        RecordTwo();
 
-    const soundTime = Date.now() - recordedStart[recordedName];
-    
-    const soundObj = {
-        soundId: soundId,
-        time: soundTime
-
-    };
-    recorded[recordedName].push(soundObj);
-
-
-
+    }
+    console.log(recordedSoundTwo);
+    if(recordThree){
+        RecordThree();
+    }
+    console.log(recordedSoundThree);
+    if(recordFour){
+        RecordFour();
+    }
+    console.log(recordedSoundFour);
       
 }
 
@@ -231,30 +222,22 @@ function onKeyPress(ev){
 function recordBtnOne(){
     recordedSoundOne = [];
     recordOne = true;
-    recordedName = "one"
     recordedStartTimeOne = Date.now();
-    recordedStart["one"] = Date.now();
 }
 function recordBtnTwo(){
     recordedSoundTwo = [];
     recordTwo = true;
-    recordedName = "two"
     recordedStartTimeTwo = Date.now();
-    recordedStart["two"] = Date.now();
 }
 function recordBtnThree(){
     recordedSoundThree = [];
     recordThree = true;
-    recordedName = "three"
     recordedStartTimeThree = Date.now();
-    recordedStart["three"] = Date.now();
 }
 function recordBtnFour(){
     recordedSoundFour = [];
     recordFour = true;
-    recordedName = "four"
     recordedStartTimeFour = Date.now();
-    recordedStart["four"] = Date.now();
 }
 
 

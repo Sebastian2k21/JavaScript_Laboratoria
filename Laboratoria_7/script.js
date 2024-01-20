@@ -4,7 +4,7 @@ function interval() {
   let timer = 1
   setInterval(
     () => {
-      // mamy coupling - interval ma na sztywno zaszyte w sobie C i D (..i logger)
+     
       saveCToSessionStorage(timer)
       discoverPowerBallNumber(timer)
       timer++

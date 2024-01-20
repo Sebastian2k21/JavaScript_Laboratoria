@@ -1,3 +1,5 @@
+
+
 export function addNote() {
     const title = document.getElementById('title').value;
     const content = document.getElementById('content').value;
@@ -14,7 +16,13 @@ export function addNote() {
     };
 
     let notes = JSON.parse(localStorage.getItem('notes')) || [];
-    notes.push(note);
+
+    
+    if (pin) {
+        notes.unshift(note);
+    } else {
+        notes.push(note);
+    }
 
     localStorage.setItem('notes', JSON.stringify(notes));
 
@@ -29,7 +37,7 @@ export function displayNotes() {
     const notes = JSON.parse(localStorage.getItem('notes')) || [];
 
     notes.forEach((note, index) => {
-        const noteElement = createNoteElement(note);
+        const noteElement = createNoteElement(note, index);
         notesContainer.appendChild(noteElement);
     });
 }
@@ -53,13 +61,14 @@ export function searchNotes() {
             note.title.toLowerCase().includes(searchInput) ||
             note.content.toLowerCase().includes(searchInput)
         ) {
-            const noteElement = createNoteElement(note);
+            const noteElement = createNoteElement(note, index);
             notesContainer.appendChild(noteElement);
         }
     });
 }
 
-export function createNoteElement(note) {
+
+export function createNoteElement(note, index) {
     const noteElement = document.createElement('div');
     noteElement.classList.add('note');
     noteElement.style.backgroundColor = note.color;
@@ -78,5 +87,21 @@ export function createNoteElement(note) {
     noteElement.appendChild(contentElement);
     noteElement.appendChild(dateElement);
 
+    
+    noteElement.addEventListener('click', function () {
+        
+        console.log('Note clicked:', note);
+    });
+
     return noteElement;
+}
+
+export function pinNote(index) {
+    let notes = JSON.parse(localStorage.getItem('notes')) || [];
+
+
+    notes[index].pin = !notes[index].pin;
+
+    localStorage.setItem('notes', JSON.stringify(notes));
+    displayNotes();
 }
